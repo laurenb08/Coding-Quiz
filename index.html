@@ -8,10 +8,11 @@
 <body>
     <div id = "timer">100</div>
     <button id = "startButton">Start Quiz</button>
-    <div id = "questionText"></div>
-        <button id = "answerOne"></button>
-        <button id = "answerTwo"></button>
-        <button id = "answerThree"></button>
+        <div id = "questionText">
+            <button class="choice" id="answerOne" onclick="checkAnswer('A')"></button>
+            <button class="choice" id="answerTwo" onclick="checkAnswer('B')"></button>
+            <button class="choice" id="answerThree" onclick="checkAnswer('C')"></button>
+        </div>
 
     <script src="./assets/script.js"></script>
 </body>

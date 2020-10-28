@@ -1,13 +1,3 @@
-//add timer to top right to show time left in the quiz
-//timer will start when you press Start Quiz button
-
-// var startTime = setInterval(myTimer, 1000);
-// var timerSeconds = 100;
-// function myTimer() {
-//     timerSeconds--;
-//     document.getElementById("timer").innerHTML = timerSeconds;
-// }
-
 var askQuestion = {
     questionText: "PLACEHOLDER",
     answerOne: "PLACEHOLDER",
@@ -15,7 +5,7 @@ var askQuestion = {
     answerThree: "PLACEHOLDER",
 }
 
-//when Start Quiz is clicked, display first question
+//when Start Quiz is clicked, display first question and start timer
 document.getElementById("startButton").addEventListener("click", function(e){
     console.log(askQuestion.questionText);
     var startTime = setInterval(myTimer, 1000);
@@ -29,6 +19,8 @@ document.getElementById("startButton").addEventListener("click", function(e){
     document.getElementById("answerOne").innerHTML = askQuestion.answerOne;
     document.getElementById("answerTwo").innerHTML = askQuestion.answerTwo;
     document.getElementById("answerThree").innerHTML = askQuestion.answerThree;
+
+    if
 })
 
 
@@ -40,8 +32,7 @@ document.getElementById("startButton").addEventListener("click", function(e){
 
 
 
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question
+
 // WHEN I answer a question
 // THEN I am presented with another question
 // WHEN I answer a question incorrectly
