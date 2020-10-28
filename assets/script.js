@@ -1,15 +1,15 @@
 //add timer to top right to show time left in the quiz
 //timer will start when you press Start Quiz button
 
-var startTime = setInterval(myTimer, 1000);
-var timerSeconds = 100;
-function myTimer() {
-    timerSeconds--;
-    document.getElementById("timer").innerHTML = timerSeconds;
-}
+// var startTime = setInterval(myTimer, 1000);
+// var timerSeconds = 100;
+// function myTimer() {
+//     timerSeconds--;
+//     document.getElementById("timer").innerHTML = timerSeconds;
+// }
 
 var askQuestion = {
-    question: "PLACEHOLDER",
+    questionText: "PLACEHOLDER",
     answerOne: "PLACEHOLDER",
     answerTwo: "PLACEHOLDER",
     answerThree: "PLACEHOLDER",
@@ -17,9 +17,18 @@ var askQuestion = {
 
 //when Start Quiz is clicked, display first question
 document.getElementById("startButton").addEventListener("click", function(e){
-    console.log(askQuestion.question);
+    console.log(askQuestion.questionText);
+    var startTime = setInterval(myTimer, 1000);
+    var timerSeconds = 100;
+    function myTimer() {
+        timerSeconds--;
+        document.getElementById("timer").innerHTML = timerSeconds;
+    }
     //display the first question and choices
-    document.getElementById()
+    document.getElementById("questionText").innerHTML = askQuestion.questionText;
+    document.getElementById("answerOne").innerHTML = askQuestion.answerOne;
+    document.getElementById("answerTwo").innerHTML = askQuestion.answerTwo;
+    document.getElementById("answerThree").innerHTML = askQuestion.answerThree;
 })
 
 
