@@ -1,30 +1,58 @@
-var askQuestion = {
-    questionText: "PLACEHOLDER",
-    answerOne: "PLACEHOLDER",
-    answerTwo: "PLACEHOLDER",
-    answerThree: "PLACEHOLDER",
-}
+var questionText = document.getElementById("questionText");
+var choiceOne = document.getElementById("answerOne");
+var choiceTwo = document.getElementById("answerTwo");
+var choiceThree = document.getElementById("answerThree");
+var score = documen.getElementById("score");
+// var quizTimer = document.getElementById("timer");
+var lastQuestion = questions.length - 1;
+var questionNumber = 0;
+var timeLeft = 100;
 
-//when Start Quiz is clicked, display first question and start timer
-document.getElementById("startButton").addEventListener("click", function(e){
-    console.log(askQuestion.questionText);
-    var startTime = setInterval(myTimer, 1000);
-    var timerSeconds = 100;
-    function myTimer() {
-        timerSeconds--;
-        document.getElementById("timer").innerHTML = timerSeconds;
+
+
+// //when Start Quiz is clicked, display first question and start timer
+// document.getElementById("startButton").addEventListener("click", function(e) {
+
+
+var questions = [
+    {
+        question: "Question1",
+        choiceOne: "choice1",
+        choiceTwo: "choice2",
+        choiceThree: "choice3",
+        correct: "answerOne"
+    },{
+        question: "Question2",
+        choiceOne: "choice1",
+        choiceTwo: "choice2",
+        choiceThree: "choice3",
+        correct: "answerTwo"
+    },{
+        question: "Question3",
+        choiceOne: "choice1",
+        choiceTwo: "choice2",
+        choiceThree: "choice3",
+        correct: "answerThree"
     }
-    //display the first question and choices
-    document.getElementById("questionText").innerHTML = askQuestion.questionText;
-    document.getElementById("answerOne").innerHTML = askQuestion.answerOne;
-    document.getElementById("answerTwo").innerHTML = askQuestion.answerTwo;
-    document.getElementById("answerThree").innerHTML = askQuestion.answerThree;
+];
+document.getElementById("startButton").addEventListener("click", quizTimer);
+function quizTimer(setInterval(displayTimer() {
+    timeLeft--;
+    document.getElementById("timer").innerHTML = timeLeft;
+    if (timeLeft <= 0)
+        alert("GAME OVER");
+        clearInterval(quizTimer);
+}, 1000));
 
-    if
-})
 
+function displayQuestion() {
+    var qNumber = questions(questionNumber);
 
-
+    question.innerHTML = "<p>" qNumber.question +"</p>";
+    choiceOne.innerHTML = "<p>" qNumber.choiceOne +"</p>";
+    choiceTwo.innerHTML = "<p>" qNumber.choiceTwo +"</p>";
+    choiceThree.innerHTML = "<p>" qNumber.choiceThree +"</p>";
+}
 
 
 
