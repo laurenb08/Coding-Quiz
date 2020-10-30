@@ -8,12 +8,7 @@ var lastQuestion = questions.length - 1;
 var questionNumber = 0;
 var timeLeft = 100;
 
-
-
-// //when Start Quiz is clicked, display first question and start timer
-// document.getElementById("startButton").addEventListener("click", function(e) {
-
-
+//variable array to store questions and answers
 var questions = [
     {
         question: "Question1",
@@ -35,25 +30,44 @@ var questions = [
         correct: "answerThree"
     }
 ];
-document.getElementById("startButton").addEventListener("click", quizTimer);
-function quizTimer(setInterval(displayTimer() {
+
+document.getElementById("startButton").addEventListener("click", startQuiz);
+
+//Timer for quiz that counts down from 100
+var quizTimer setInterval(displayTimer) {
     timeLeft--;
-    document.getElementById("timer").innerHTML = timeLeft;
+    document.getElementById("timer").textContent = timeLeft;
     if (timeLeft <= 0)
         alert("GAME OVER");
         clearInterval(quizTimer);
-}, 1000));
+}, 1000;
 
-
+//This function displays the question
 function displayQuestion() {
     var qNumber = questions(questionNumber);
 
-    question.innerHTML = "<p>" qNumber.question +"</p>";
-    choiceOne.innerHTML = "<p>" qNumber.choiceOne +"</p>";
-    choiceTwo.innerHTML = "<p>" qNumber.choiceTwo +"</p>";
-    choiceThree.innerHTML = "<p>" qNumber.choiceThree +"</p>";
+    question.innerHTML = "<p>"+ qNumber.question +"</p>";
+    choiceOne.innerHTML = "<p>"+ qNumber.choiceOne +"</p>";
+    choiceTwo.innerHTML = "<p>"+ qNumber.choiceTwo +"</p>";
+    choiceThree.innerHTML = "<p>"+ qNumber.choiceThree +"</p>";
 }
 
+//This function checks if your answer is correct
+function check() {
+    if ( answer /= questions[qNumber].correct);
+    timeLeft-5;
+}
+
+//This function displays your score
+function displayScore() {
+    document.getElementById("finalScore") = timeLeft;
+}
+
+//This function runs when the start button is clicked
+function startQuiz() {
+    displayQuestion();
+    displayScore();
+}
 
 
 

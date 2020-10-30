@@ -7,11 +7,15 @@
 </head>
 <body>
     <div id = "timer">100</div>
+    <div id = "score"></div>
     <button id = "startButton">Start Quiz</button>
         <div id = "questionText">
-            <button class="choice" id="answerOne" onclick="checkAnswer('A')"></button>
-            <button class="choice" id="answerTwo" onclick="checkAnswer('B')"></button>
-            <button class="choice" id="answerThree" onclick="checkAnswer('C')"></button>
+            <button class="choice" id="answerOne" onclick="check('A')"></button>
+            <button class="choice" id="answerTwo" onclick="check('B')"></button>
+            <button class="choice" id="answerThree" onclick="check('C')"></button>
+        </div>
+        <div>
+            <p class = "finalScore"></p>
         </div>
 
     <script src="./assets/script.js"></script>
