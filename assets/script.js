@@ -34,12 +34,12 @@ var questions = [
 document.getElementById("startButton").addEventListener("click", startQuiz);
 
 //Timer for quiz that counts down from 100
-var quizTimer setInterval(displayTimer) {
+var quizTimer setInterval(quizTimer) {
     timeLeft--;
     document.getElementById("timer").textContent = timeLeft;
     if (timeLeft <= 0)
         alert("GAME OVER");
-        clearInterval(quizTimer);
+    clearInterval(quizTimer);
 }, 1000;
 
 //This function displays the question
