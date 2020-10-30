@@ -2,28 +2,27 @@ var questionText = document.getElementById("questionText");
 var choiceOne = document.getElementById("answerOne");
 var choiceTwo = document.getElementById("answerTwo");
 var choiceThree = document.getElementById("answerThree");
-var score = documen.getElementById("score");
-// var quizTimer = document.getElementById("timer");
-var lastQuestion = questions.length - 1;
+var score = document.getElementById("score");
+var quizTimer = document.getElementById("timer");
 var questionNumber = 0;
 var timeLeft = 100;
 
 //variable array to store questions and answers
 var questions = [
     {
-        question: "Question1",
+        questionText: "Question1",
         choiceOne: "choice1",
         choiceTwo: "choice2",
         choiceThree: "choice3",
         correct: "answerOne"
     },{
-        question: "Question2",
+        questionText: "Question2",
         choiceOne: "choice1",
         choiceTwo: "choice2",
         choiceThree: "choice3",
         correct: "answerTwo"
     },{
-        question: "Question3",
+        questionText: "Question3",
         choiceOne: "choice1",
         choiceTwo: "choice2",
         choiceThree: "choice3",
@@ -31,22 +30,31 @@ var questions = [
     }
 ];
 
+//event listener for button click
 document.getElementById("startButton").addEventListener("click", startQuiz);
 
-//Timer for quiz that counts down from 100
-var quizTimer setInterval(quizTimer) {
-    timeLeft--;
-    document.getElementById("timer").textContent = timeLeft;
-    if (timeLeft <= 0)
-        alert("GAME OVER");
-    clearInterval(quizTimer);
-}, 1000;
+//This function runs when the start button is clicked
+function startQuiz() {
+    //timer for quiz
+    var quizTimer=setInterval(quizTimer) {
+        timeLeft--,
+        document.getElementById("timer").textContent = timeLeft;
+        if (timeLeft <= 0)
+            alert("GAME OVER");
+    } 1000;
+}
+
+ //function to display questions
+ displayQuestion();
+
+ //function to display score
+ displayScore();
 
 //This function displays the question
 function displayQuestion() {
     var qNumber = questions(questionNumber);
 
-    question.innerHTML = "<p>"+ qNumber.question +"</p>";
+    questionText.innerHTML = "<p>"+ qNumber.questionText +"</p>";
     choiceOne.innerHTML = "<p>"+ qNumber.choiceOne +"</p>";
     choiceTwo.innerHTML = "<p>"+ qNumber.choiceTwo +"</p>";
     choiceThree.innerHTML = "<p>"+ qNumber.choiceThree +"</p>";
@@ -62,18 +70,6 @@ function check() {
 function displayScore() {
     document.getElementById("finalScore") = timeLeft;
 }
-
-//This function runs when the start button is clicked
-function startQuiz() {
-    displayQuestion();
-    displayScore();
-}
-
-
-
-
-
-
 
 // WHEN I answer a question
 // THEN I am presented with another question
