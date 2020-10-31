@@ -6,17 +6,30 @@
     <title>Coding Quiz Challenge</title>
 </head>
 <body>
-    <div id = "timer"></div>
-    <div id = "score"></div>
+    <!-- nav bar will have link to high scores on left and timer countdown on right -->
+    <nav>
+        <div id = "timer">100</div>
+    </nav>
+    <!-- click to start game -->
     <button id = "startButton">Start Quiz</button>
-        <div id = "questionText">
-            <button class="choice" id="answerOne" onclick="check('A')"></button>
-            <button class="choice" id="answerTwo" onclick="check('B')"></button>
-            <button class="choice" id="answerThree" onclick="check('C')"></button>
-        </div>
-        <div>
-            <p class = "finalScore"></p>
-        </div>
+    
+    <!-- display questions -->
+    <div id = "questionText">
+        <button class="choice" id="answerOne" onclick="check('A')"></button>
+        <button class="choice" id="answerTwo" onclick="check('B')"></button>
+        <button class="choice" id="answerThree" onclick="check('C')"></button>
+    </div>
+    
+    <!-- game end and save high score -->
+    <div id = "storeScore">
+        <h2>Game Over!</h2>
+        <p>Your score is: <span id = "finalScore">!</p>
+        <form>
+            <!-- gather user initials and save high score -->
+            <p>Please enter your initals here to save your score: <input id = "initials" type = "text" max = "4"></p>
+            <button id = "submitScore">Submit Score!</button>
+        </form>
+    </div>
 
     <script src="./assets/script.js"></script>
 </body>

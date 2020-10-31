@@ -2,10 +2,9 @@ var questionText = document.getElementById("questionText");
 var choiceOne = document.getElementById("answerOne");
 var choiceTwo = document.getElementById("answerTwo");
 var choiceThree = document.getElementById("answerThree");
-var score = document.getElementById("score");
 var quizTimer = document.getElementById("timer");
 var questionNumber = 0;
-var timeLeft = 100;
+// var timeLeft = 100;
 
 //variable array to store questions and answers
 var questions = [
@@ -31,18 +30,25 @@ var questions = [
 ];
 
 //event listener for button click
-document.getElementById("startButton").addEventListener("click", startQuiz);
+document.getElementById("startButton").addEventListener("click", startQuiz());
 
 //This function runs when the start button is clicked
 function startQuiz() {
     //timer for quiz
-    var quizTimer=setInterval(quizTimer) {
+    var timerVar = setInterval(quizTimer, 1000) 
+        var timeLeft = 100;
+        function quizTimer() {
         timeLeft--,
         document.getElementById("timer").textContent = timeLeft;
-        if (timeLeft <= 0)
+        if (timeLeft = 0){
             alert("GAME OVER");
+            clearInterval(timerVar);
+            return;
+        }
     } 1000;
 }
+
+
 
  //function to display questions
  displayQuestion();
