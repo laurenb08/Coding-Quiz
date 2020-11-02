@@ -1,38 +1,34 @@
-var questionText = document.getElementById("questionText");
-var choiceOne = document.getElementById("answerOne");
-var choiceTwo = document.getElementById("answerTwo");
-var choiceThree = document.getElementById("answerThree");
+var questionText = document.getElementById("qText");
+var answerOne = document.getElementById("answerOne");
+var answerTwo = document.getElementById("answerTwo");
+var answerThree = document.getElementById("answerThree");
 var quizTimer = document.getElementById("timer");
 var questionNumber = 0;
 var timeLeft = 100;
-var practiceScore = 75;
 
 //variable array to store questions and answers
 var questions = [
     {
         questionText: "Question1",
-        choiceOne: "choice1",
-        choiceTwo: "choice2",
-        choiceThree: "choice3",
+        answerOne: "choice1",
+        answerTwo: "choice2",
+        answerThree: "choice3",
         correct: "answerOne"
     },{
         questionText: "Question2",
-        choiceOne: "choice1",
-        choiceTwo: "choice2",
-        choiceThree: "choice3",
+        answerOne: "choice1",
+        answerTwo: "choice2",
+        answerThree: "choice3",
         correct: "answerTwo"
     },{
         questionText: "Question3",
-        choiceOne: "choice1",
-        choiceTwo: "choice2",
-        choiceThree: "choice3",
+        answerOne: "choice1",
+        answerTwo: "choice2",
+        answerThree: "choice3",
         correct: "answerThree"
     }
 ];
 console.log(questions);
-
-//event listener for button click
-document.getElementById("startButton").addEventListener("click", startQuiz());
 
 //This function runs when the start button is clicked
 function startQuiz() {
@@ -47,15 +43,19 @@ function startQuiz() {
             return;
         }
     }
+    displayQuestion();
 }
 
 //This function displays the question
 function displayQuestion() {
     var qNumber = questions[questionNumber];
+    console.log(qNumber);
+    console.log(qNumber.answerOne);
+    //document.getElementById("question").innerHTML = 
         questionText.innerHTML = "<p>"+ qNumber.questionText +"</p>";
-        choiceOne.innerHTML = "<p>"+ qNumber.choiceOne +"</p>";
-        choiceTwo.innerHTML = "<p>"+ qNumber.choiceTwo +"</p>";
-        choiceThree.innerHTML = "<p>"+ qNumber.choiceThree +"</p>";
+        answerOne.innerHTML = qNumber.answerOne;
+        answerTwo.innterHTML = "<p>"+ qNumber.answerTwo +"</p>";
+        answerThree.innterHTML = "<p>"+ qNumber.answerThree +"</p>";
 }
 
 //This function checks if your answer is correct
@@ -87,14 +87,9 @@ function saveScore(){
 
     highScores.push(currentScore);
     localStorage.setItem("highScoreList", JSON.stringify(currentScore));
-}
-
-//event listener for startGame button click
-document.getElementById("startButton").addEventListener("click", startQuiz());
+// }
 
 //add event listener for submitScore button click
 document.getElementById("submitScore").addEventListener("click", saveScore);
 
-displayQuestion();
 displayScore();
-
