@@ -7,24 +7,38 @@
   </head>
   <body>
     <header>
+      <!-- link to high scores -->
       <a href="#" class="viewHighScores">View Highscores</a>
       <p class="timer">Time: 100</p>
     </header>
 
-    <!-- nav bar will have link to high scores on left and timer countdown on right -->
-    <!-- <nav>
-        <div id = "timer">100</div>
-    </nav> -->
-    <!-- click to start game -->
-    <!-- <button id="startButton" onclick=startQuiz()>Start Quiz</button> -->
+    <main>
+      <div class="instructionPage">
+        <h1>Timed Coding Quiz!</h1>
+        <p>
+          Welcome to the timed coding quiz!<br />When you click start, the timer
+          will start to count down.<br />For every question you get incorrect,
+          10 seconds will be deducted from the timer.<br />At the end of the
+          quiz, your time left will be your score and you will be able to save
+          it to the high score page and try again!
+        </p>
+        <!-- click to start game -->
+        <button id="startButton" onclick="startQuiz()">Start Quiz</button>
+      </div>
 
-    <!-- display questions -->
-    <!-- <div id = "qText">
-        <button class="choice" id="answerOne" onclick="check('A')">a</button>
-        <button class="choice" id="answerTwo" onclick="check('B')">b</button>
-        <button class="choice" id="answerThree" onclick="check('C')">c</button>
-        <button class="choice" id="answerFour" onclick="check('D')">c</button>
-    </div> -->
+      <!-- display questions -->
+      <div id="qDispaly hidden">
+        <h2 id="qText">Question</h2>
+        <div class="choiceBox">
+          <button class="choice" id="answerOne" onclick="check('A')">a</button>
+          <button class="choice" id="answerTwo" onclick="check('B')">b</button>
+          <button class="choice" id="answerThree" onclick="check('C')">
+            c
+          </button>
+          <button class="choice" id="answerFour" onclick="check('D')">d</button>
+        </div>
+      </div>
+    </main>
 
     <!-- game end and save high score -->
     <!-- <div id = "storeScore">
