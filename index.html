@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coding Quiz Challenge</title>
-</head>
-<body>
+  </head>
+  <body>
+    <header>
+      <a href="#" class="viewHighScores">View Highscores</a>
+      <p class="timer">Time: 100</p>
+    </header>
+
     <!-- nav bar will have link to high scores on left and timer countdown on right -->
-    <nav>
+    <!-- <nav>
         <div id = "timer">100</div>
-    </nav>
+    </nav> -->
     <!-- click to start game -->
-    <button id="startButton" onclick=startQuiz()>Start Quiz</button>
-    
+    <!-- <button id="startButton" onclick=startQuiz()>Start Quiz</button> -->
+
     <!-- display questions -->
-    <div id = "qText">
+    <!-- <div id = "qText">
         <button class="choice" id="answerOne" onclick="check('A')">a</button>
         <button class="choice" id="answerTwo" onclick="check('B')">b</button>
         <button class="choice" id="answerThree" onclick="check('C')">c</button>
-    </div>
-    
+        <button class="choice" id="answerFour" onclick="check('D')">c</button>
+    </div> -->
+
     <!-- game end and save high score -->
-    <div id = "storeScore">
+    <!-- <div id = "storeScore">
         <h2>Game Over!</h2>
         <p>Your score is: <span id = "finalScore">!</p>
-        <form>
-        <!-- gather user initials and save high score -->
-            <p>Please enter your initals here to save your score: <input id = "initials" type = "text" max = "4"></p>
+        <form> -->
+    <!-- gather user initials and save high score -->
+    <!-- <p>Please enter your initals here to save your score: <input id = "initials" type = "text" max = "4"></p>
             <button id = "submitScore">Submit Score!</button>
         </form>
-    </div>
+    </div> -->
 
     <script src="./assets/game.js"></script>
-</body>
+  </body>
 </html>
