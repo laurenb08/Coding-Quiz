@@ -4,9 +4,9 @@ var answerTwo = document.getElementById("answerTwo");
 var answerThree = document.getElementById("answerThree");
 var quizTimer = document.getElementById("timer");
 var questionNumber = 0;
-var timeLeft = 60;
 var intervalID;
 var questionIndex = 0;
+var score;
 
 //variable array to store questions and answers
 // var questions = [
@@ -62,7 +62,6 @@ var questions = [
         answer: "myFunction()"
     }];
 
-console.log(questions[0].choices);
 
 //This function runs when the start button is clicked
 function startQuiz() {
@@ -71,6 +70,8 @@ function startQuiz() {
     document.getElementById("instructionPage").style.display = "none";
     displayQuestion();
 }
+
+var timeLeft = questions.length * 15;
 
 function timer() {
     timeLeft--;
@@ -82,21 +83,32 @@ function timer() {
 };
 
 function displayQuestion() {
-    var questionTitleEl = document.createElement("h1");
-    questionTitleEl.textContent = questions[0].title;
-    document.getElementById("questionArea").append(questionTitleEl);
-    for (var i = 0; i < questions[0].choices.length; i++) {
-        var button = document.createElement("button");
-        button.textContent = questions[0].choices[i];
-        document.getElementById("questionArea").append(button);
-        button.addEventListener("click", function (e) {
-            console.log(e.target.textContent);
-            if (e.target.textContent === questions[0].answer) {
-                console.log("correct");
+    if (questionIndex < questions.length) {
+        var questionTitleEl = document.createElement("h1");
+        questionTitleEl.textContent = questions[questionIndex].title;
+        document.getElementById("questionArea").append(questionTitleEl);
+        for (var i = 0; i < questions[questionIndex].choices.length; i++) {
+            var button = document.createElement("button");
+            button.textContent = questions[questionIndex].choices[i];
+            document.getElementById("questionArea").append(button);
+            button.addEventListener("click", function (e) {
+                console.log(e.target.textContent);
+                if (e.target.textContent === questions[questionIndex].answer) {
+                    console.log("correct");
 
-            }
-            questionIndex++;
-        })
+                } else {
+                    timeLeft -= 15;
+                }
+                questionIndex++;
+                document.getElementById("questionArea").innerHTML = "";
+                displayQuestion();
+            })
+        }
+    } else {
+        console.log("game over");
+        // clearInterval(IntervalID);
+        score = timeLeft;
+        console.log(score);
     }
 };
 
