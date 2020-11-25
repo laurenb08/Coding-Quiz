@@ -62,12 +62,14 @@ var questions = [
         answer: "myFunction()"
     }];
 
+document.getElementById("storeScore").style.display = "none";
 
 //This function runs when the start button is clicked
 function startQuiz() {
     //timer for quiz
     intervalID = setInterval(timer, 1000);
     document.getElementById("instructionPage").style.display = "none";
+    document.getElementById("storeScore").style.display = "none";
     displayQuestion();
 }
 
@@ -106,10 +108,11 @@ function displayQuestion() {
         }
     } else {
         console.log("game over");
-        // clearInterval(IntervalID);
+        clearInterval(quizTimer);
         score = timeLeft;
         console.log(score);
     }
+    saveScore();
 };
 
 //This function displays the question
@@ -125,41 +128,50 @@ function displayQuestion() {
 // }
 
 //This function checks if your answer is correct
-function check() {
-    if (answer != questions[qNumber].correct);
-    timeLeft - 5;
-}
+// function check() {
+//     if (answer != questions[qNumber].correct);
+//     timeLeft - 5;
+// }
 
 //This function displays your score
-function displayScore() {
-    document.getElementById("finalScore") = timeLeft.value;
-}
+// function displayScore() {
+//     document.getElementById("finalScore") = timeLeft.value;
+// }
 
 //this function saves and stores your score
-function saveScore() {
-
+function saveScore(e) {
+    e.preventDefault();
+    document.getElementById("questionArea").style.display = "none";
+    document.getElementById("storeScore").removeAttribute(".hide");
     console.log("submitScore");
     var initials = document.getElementById("initials");
     console.log("initials".value);
 
-    var currentScore = {
-        playerScore: timeLeft,
-        playerInitials: initials.value
+    if (initials.value === "") {
+        alert("Please submit initials.");
     }
+
+    if (initials.value !== "") {
+        var currentScore = {
+            score: timeLeft,
+            playerInitials: initials.value
+        }
+    }
+
 
     console.log(currentScore);
 
     var highScores = JSON.parse(window.localStorage.getItem("highScoreList")) || [];
 
     highScores.push(currentScore);
-    localStorage.setItem("highScoreList", JSON.stringify(currentScore));
+    window.localStorage.setItem("highScoreList", JSON.stringify(currentScore));
     // }
 
     //add event listener for submitScore button click
     document.getElementById("submitScore").addEventListener("click", saveScore);
 
-    // displayScore()
 }
+
 
 document.getElementById("startButton").addEventListener("click", function () {
     startQuiz();
