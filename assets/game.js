@@ -69,7 +69,7 @@ function startQuiz() {
     //timer for quiz
     intervalID = setInterval(timer, 1000);
     document.getElementById("instructionPage").style.display = "none";
-    document.getElementById("storeScore").style.display = "none";
+    // document.getElementById("storeScore").style.display = "none";
     displayQuestion();
 }
 
@@ -79,7 +79,7 @@ function timer() {
     timeLeft--;
     quizTimer.textContent = "Time: " + timeLeft;
     if (timeLeft <= 0) {
-        alert("GAME OVER");
+        // alert("GAME OVER");
         clearInterval(intervalID);
     }
 };
@@ -111,8 +111,12 @@ function displayQuestion() {
         clearInterval(quizTimer);
         score = timeLeft;
         console.log(score);
+        document.getElementById("questionArea").style.display = "none";
+        document.getElementById("storeScore").style.display = "block";
+        document.getElementById("submitScore").addEventListener("click", saveScore);
+        // saveScore();
     }
-    saveScore();
+
 };
 
 //This function displays the question
@@ -141,11 +145,9 @@ function displayQuestion() {
 //this function saves and stores your score
 function saveScore(e) {
     e.preventDefault();
-    document.getElementById("questionArea").style.display = "none";
-    document.getElementById("storeScore").removeAttribute(".hide");
     console.log("submitScore");
     var initials = document.getElementById("initials");
-    console.log("initials".value);
+    console.log(initials);
 
     if (initials.value === "") {
         alert("Please submit initials.");
@@ -168,7 +170,7 @@ function saveScore(e) {
     // }
 
     //add event listener for submitScore button click
-    document.getElementById("submitScore").addEventListener("click", saveScore);
+    // document.getElementById("submitScore").addEventListener("click", saveScore);
 
 }
 
