@@ -3,37 +3,13 @@ var answerOne = document.getElementById("answerOne");
 var answerTwo = document.getElementById("answerTwo");
 var answerThree = document.getElementById("answerThree");
 var quizTimer = document.getElementById("timer");
+var finalScore = document.getElementById("finalScore");
+var finalScoreList = document.getElementById("highScoreList");
 var questionNumber = 0;
 var intervalID;
 var questionIndex = 0;
 var score;
-
-//variable array to store questions and answers
-// var questions = [
-//     {
-//         questionText: "Question1",
-//         answerOne: "choice1",
-//         answerTwo: "choice2",
-//         answerThree: "choice3",
-//         answerFour: "choice4",
-//         correct: "answerOne"
-//     }, {
-//         questionText: "Question2",
-//         answerOne: "choice1",
-//         answerTwo: "choice2",
-//         answerThree: "choice3",
-//         answerFour: "choice4",
-//         correct: "answerTwo"
-//     }, {
-//         questionText: "Question3",
-//         answerOne: "choice1",
-//         answerTwo: "choice2",
-//         answerThree: "choice3",
-//         answerFour: "choice4",
-//         correct: "answerThree"
-//     }
-// ];
-// console.log(questions);
+var finishers = [];
 
 var questions = [
     {
@@ -108,10 +84,12 @@ function displayQuestion() {
         }
     } else {
         console.log("game over");
-        clearInterval(quizTimer);
         score = timeLeft;
+        finalScore.textContent = score;
         console.log(score);
+        clearInterval(intervalID);
         document.getElementById("questionArea").style.display = "none";
+        quizTimer.style.display = "none";
         document.getElementById("storeScore").style.display = "block";
         document.getElementById("submitScore").addEventListener("click", saveScore);
         // saveScore();
@@ -119,60 +97,48 @@ function displayQuestion() {
 
 };
 
-//This function displays the question
-// function displayQuestion() {
-//     var qNumber = questions[questionNumber];
-//     console.log(qNumber);
-//     console.log(qNumber.answerOne);
-//document.getElementById("question").innerHTML = 
-// questionText.innerHTML = "<p>" + qNumber.questionText + "</p>";
-// answerOne.innerHTML = qNumber.answerOne;
-// answerTwo.innterHTML = "<p>" + qNumber.answerTwo + "</p>";
-// answerThree.innterHTML = "<p>" + qNumber.answerThree + "</p>";
-// }
-
-//This function checks if your answer is correct
-// function check() {
-//     if (answer != questions[qNumber].correct);
-//     timeLeft - 5;
-// }
-
-//This function displays your score
-// function displayScore() {
-//     document.getElementById("finalScore") = timeLeft.value;
-// }
-
-//this function saves and stores your score
 function saveScore(e) {
     e.preventDefault();
     console.log("submitScore");
     var initials = document.getElementById("initials");
     console.log(initials);
+    var currentScore
 
     if (initials.value === "") {
         alert("Please submit initials.");
     }
 
     if (initials.value !== "") {
-        var currentScore = {
-            score: timeLeft,
-            playerInitials: initials.value
-        }
+        var playerInitials = initials.value;
+        currentScore = "Score: " + timeLeft + " Player Initials: " + playerInitials
+        console.log(currentScore);
+
     }
+    finishers.push(currentScore);
+    localStorage.setItem("highScoreList", JSON.stringify(finishers));
+    JSON.parse(localStorage.getItem("highScoreList")).map((highScore) => {
+        // var list = $(<li></li>)
+        // list.textContent = highScore
+        // finalScoreList.append(highScore);
+        console.log(highScore);
+    });
 
-
+    // document.getElementById("submitScore").innerHTML = currentScore;
     console.log(currentScore);
 
-    var highScores = JSON.parse(window.localStorage.getItem("highScoreList")) || [];
 
-    highScores.push(currentScore);
-    window.localStorage.setItem("highScoreList", JSON.stringify(currentScore));
+
+    // var highScores = JSON.parse(window.localStorage.getItem("highScoreList")) || [];
+
+    // highScores.push(currentScore);
+    // window.localStorage.setItem("highScoreList", JSON.stringify(currentScore));
     // }
 
     //add event listener for submitScore button click
     // document.getElementById("submitScore").addEventListener("click", saveScore);
 
 }
+
 
 
 document.getElementById("startButton").addEventListener("click", function () {
