@@ -4,7 +4,7 @@ var answerTwo = document.getElementById("answerTwo");
 var answerThree = document.getElementById("answerThree");
 var quizTimer = document.getElementById("timer");
 var finalScore = document.getElementById("finalScore");
-var finalScoreList = document.getElementById("highScoreList");
+var highScoreList = document.getElementById("highScoreList");
 var questionNumber = 0;
 var intervalID;
 var questionIndex = 0;
@@ -97,8 +97,8 @@ function displayQuestion() {
 
 };
 
-function saveScore(e) {
-    e.preventDefault();
+function saveScore() {
+    // e.preventDefault();
     console.log("submitScore");
     var initials = document.getElementById("initials");
     console.log(initials);
@@ -116,16 +116,11 @@ function saveScore(e) {
     }
     finishers.push(currentScore);
     localStorage.setItem("highScoreList", JSON.stringify(finishers));
-    JSON.parse(localStorage.getItem("highScoreList")).map((highScore) => {
-        // var list = $(<li></li>)
-        // list.textContent = highScore
-        // finalScoreList.append(highScore);
-        console.log(highScore);
-    });
+
+
 
     // document.getElementById("submitScore").innerHTML = currentScore;
     console.log(currentScore);
-
 
 
     // var highScores = JSON.parse(window.localStorage.getItem("highScoreList")) || [];
@@ -138,8 +133,6 @@ function saveScore(e) {
     // document.getElementById("submitScore").addEventListener("click", saveScore);
 
 }
-
-
 
 document.getElementById("startButton").addEventListener("click", function () {
     startQuiz();
