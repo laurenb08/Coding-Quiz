@@ -9,19 +9,33 @@
       integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Truculenta:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <title>Coding Quiz Challenge</title>
-    <link rel="stylesheet" href="./assets/style.css"
+    <link rel="stylesheet" href="./assets/style.css" />
   </head>
-  <body>
-    <header>
-      <!-- link to high scores -->
-      <a href="highscore.html" class="viewHighScores">View Highscores</a>
-      <p id="timer">Quiz Timer</p>
-    </header>
+  <body class="body">
+    <div class="jumbotron jumbotron-fluid text-center pt-5">
+      <div class="container">
+        <h1 class="display-4">Timed Coding Quiz!</h1>
+      </div>
+      <nav class="container pt-4">
+        <ul class="nav nav-fill justify-content-center">
+          <li class="nav-item">
+            <a href="highscore.html" class="viewHighScores">View Highscores</a>
+          </li>
+          <li class="nav-item">
+            <p id="timer">Quiz Timer</p>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
-    <main>
+    <main class="instructions text-center pt-4">
       <div id="instructionPage">
-        <h1>Timed Coding Quiz!</h1>
         <p>
           Welcome to the timed coding quiz!<br />When you click start, the timer
           will start to count down.<br />For every question you get incorrect,
@@ -30,14 +44,14 @@
           it to the high score page and try again!
         </p>
         <!-- click to start game -->
-        <button id="startButton">Start Quiz</button>
+        <button class="btn btn-secondary" id="startButton">Start Quiz</button>
       </div>
 
       <div id="questionArea"></div>
     </main>
 
     <!-- game end and save high score -->
-    <div id="storeScore" class="hide">
+    <div id="storeScore" class="hide justify-content-center">
       <h2>Game Over!</h2>
       <p>Your score is: <span id="finalScore"></span>!</p>
       <form>

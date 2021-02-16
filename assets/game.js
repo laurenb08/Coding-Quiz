@@ -13,29 +13,29 @@ var finishers = [];
 
 var questions = [
     {
-        title: "What is the HTML tag under which one can write the JavaScript code?",
-        choices: ["<javascript>", "<scripted>", "<script>", "<js>"],
-        answer: "<script>"
+        title: "What does this equation mean ? a != t",
+        choices: ["A is equal to T", "A is more important than T", "A is not equal to T", "T is added to A"],
+        answer: "A is not equal to T"
     },
     {
-        title: "What is the correct syntax for referring to an external script called 'script.js'?",
-        choices: ['<script src=”script.js”>', '<script href=”script.js”>', '<script ref=”script.js”>', '<script name=”script.js”>'],
-        answer: '<script src=”script.js”>'
+        title: "What tag is used to place a button inside an HTML document?",
+        choices: ["<link>", "<div>", "<main>", "<button>"],
+        answer: "<button>"
     },
     {
-        title: "How do you create a function in JavaScript?",
-        choices: ["function = myFunction()", "function:myFunction", "function myFunction()", "Int Main(args)"],
-        answer: "function myFunction()"
+        title: "In JavaScript, what is a block of code called that performs a specific task?",
+        choices: ["Variable", "Function", "String", "Array"],
+        answer: "Function"
     },
     {
-        title: "How to write an IF statement in JavaScript?",
-        choices: ["if (i==5)", "if i=5 then", "if i = 5", "if i == 5 then"],
-        answer: "if (i==5)"
+        title: "CSS improves the _____ of an HTML document.",
+        choices: ["Function", "Appearance", "Layout", "Colors"],
+        answer: "Appearance"
     },
     {
-        title: "How do you call a function named 'myFunction'?",
-        choices: ["call myFunction()", "call function myFunction()", "myFunction()", "void 'myFunction()' "],
-        answer: "myFunction()"
+        title: "What CSS property shows you extra information about something when you hover over an element?",
+        choices: ["Hint", "Info Block", "Tutorial", "Tooltip"],
+        answer: "Tooltip"
     }];
 
 document.getElementById("storeScore").style.display = "none";

@@ -1,1 +1,14 @@
+.body {
+  background-color:rgb(255, 223, 223);
+  font-family: 'Truculenta', sans-serif;
+  font-size: x-large;
+}
 
+.jumbotron {
+  background-color: rgb(253, 185, 185);
+  font-family: 'Truculenta', sans-serif;
+}
+
+ul {
+    list-style: none;
+   }
